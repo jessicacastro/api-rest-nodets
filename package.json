@@ -1,17 +1,21 @@
 {
   "name": "api-rest-node",
   "version": "1.0.0",
-  "description": "",
+  "author": "Jessica Castro",
+  "description": "API REST with Node.js and TypeScript made in Ignite from Rocketseat",
+  "keywords": [],
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
-    "knex": "node --no-warnings --loader tsx ./node_modules/.bin/knex"
+    "knex": "node --no-warnings --loader tsx ./node_modules/.bin/knex",
+    "migrate": "npm run knex migrate:latest",
+    "migrate:create": "npm run knex migrate:make",
+    "migrate:rollback": "npm run knex migrate:rollback"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "fastify": "^4.14.1",
     "knex": "^2.4.2",
     "sqlite3": "^5.1.6"
