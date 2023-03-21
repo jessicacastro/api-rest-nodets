@@ -2,7 +2,7 @@
 
 Application made with Fastify, Knex, ESLint, sqlite3, zod and Typescript for NodeJS.
 
-## Summary
+## Summary 📝
 
 - [How to run the application 📌](#howtorun)
 - [License 🔒](#license)
