@@ -1,10 +1,9 @@
-import 'dotenv/config'
 import crypto from 'node:crypto'
 import fastify from 'fastify'
+import { env } from './env'
 import { knex } from './database/database'
 
 const server = fastify()
-const PORT = Number(process.env.PORT) || 3333
 
 server.get('/isUp', async (request, reply) => {
   const tables = await knex('sqlite_schema').select('*')
@@ -29,6 +28,8 @@ server.get('/', async (request, reply) => {
 
 server
   .listen({
-    port: PORT,
+    port: env.PORT,
   })
-  .then(() => console.log(`Server is running at http://localhost:${PORT} 🚀`))
+  .then(() =>
+    console.log(`Server is running at http://localhost:${env.PORT} 🚀`),
+  )

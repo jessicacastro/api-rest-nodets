@@ -1,20 +1,16 @@
-import 'dotenv/config'
 import { knex as setupKnex, Knex } from 'knex'
-
-if (!process.env.DATABASE_URL) {
-  throw new Error('DATABASE_URL is not defined')
-}
+import { env } from '../env'
 
 export const config: Knex.Config = {
   client: 'sqlite',
   connection: {
-    filename: process.env.DATABASE_URL,
+    filename: env.DATABASE_URL,
   },
   migrations: {
-    directory: './src/database/migrations',
+    directory: env.MIGRATIONS_DIRECTORY,
   },
   seeds: {
-    directory: './src/database/seeds',
+    directory: env.SEEDS_DIRECTORY,
   },
   useNullAsDefault: true,
 }
