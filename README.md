@@ -1,8 +1,31 @@
-# NoNameApplicationYet
 
-Application made with Fastify, Knex, ESLint, sqlite3, zod and Typescript for NodeJS.
+<p align="center">
+ <img src="./images/TransactionsAPI.png" alt="Project logo">
+</p>
 
-## Summary 📝
+<h3 align="center">Transactions</h3>
+
+<div align="center">
+
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+![Issues](https://img.shields.io/github/issues/jessicacastro/transactionsAPI)
+![Forks](https://img.shields.io/github/forks/jessicacastro/transactionsAPI)
+![Stars](https://img.shields.io/github/stars/jessicacastro/transactionsAPI)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+![Top Language](https://img.shields.io/github/languages/top/jessicacastro/transactionsAPI)
+![Last Commit](https://img.shields.io/github/last-commit/jessicacastro/transactionsAPI)
+![Tweet](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fjessicacastro%2FtransactionsAPI)
+</div>
+
+<p align="center">
+  Application made with Fastify, Knex, ESLint, sqlite3, zod and Typescript for NodeJS.
+  <br />
+  Make sure that your transactions are controlled with this API.
+  <br />
+</p>
+
+
+### Summary 📝
 
 - [How to run the application 📌](#howtorun)
 - [License 🔒](#license)
