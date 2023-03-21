@@ -4,7 +4,7 @@
   "author": "Jessica Castro",
   "description": "API REST with Node.js and TypeScript made in Ignite from Rocketseat",
   "keywords": [],
-  "license": "ISC",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
