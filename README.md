@@ -1,6 +1,6 @@
 
 <p align="center">
- <img src="./images/transacitons_api_banner.png" alt="Transactions API Logo">
+ <img src="./images/transactions_api_banner.png" alt="Transactions API Logo">
 </p>
 
 <h3 align="center">Transactions</h3>
