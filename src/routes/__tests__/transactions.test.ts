@@ -1,14 +1,21 @@
 import stRequest from 'supertest'
-import { expect, describe, it, beforeAll, afterAll } from 'vitest'
+import { execSync } from 'node:child_process'
+import { expect, describe, it, beforeAll, afterAll, beforeEach } from 'vitest'
 import { app } from '../../app'
 
 describe('Transactions routes', () => {
   beforeAll(async () => {
     await app.ready()
+    execSync('npm run migrate')
   })
 
   afterAll(async () => {
     await app.close()
+  })
+
+  beforeEach(async () => {
+    execSync('npm run migrate:rollback')
+    execSync('npm run migrate')
   })
 
   describe('GET /transactions', () => {
@@ -63,7 +70,7 @@ describe('Transactions routes', () => {
       })
     })
 
-    describe('When a client try to get a transaction with a valid session id', async () => {
+    describe('When a client try to get a specific transaction with a valid session id', async () => {
       it('should return the success with status code 200', async () => {
         const createTransactionResponse = await stRequest(app.server)
           .post('/transactions')
@@ -75,11 +82,18 @@ describe('Transactions routes', () => {
 
         const cookies = createTransactionResponse.get('Set-Cookie')
 
-        const response = await stRequest(app.server)
+        const responseListAllTransactions = await stRequest(app.server)
           .get('/transactions')
           .set('Cookie', cookies)
 
-        expect(response.status).toBe(200)
+        const transactionId =
+          responseListAllTransactions.body.transactions[0].id
+
+        const response = await stRequest(app.server)
+          .get(`/transactions/${transactionId}`)
+          .set('Cookie', cookies)
+
+        expect(response.body.transaction.id).toMatch(transactionId)
       })
 
       it('should return the transaction', async () => {
@@ -118,11 +132,20 @@ describe('Transactions routes', () => {
 
         const cookies = createTransactionResponse.get('Set-Cookie')
 
+        await stRequest(app.server)
+          .post('/transactions')
+          .send({
+            title: 'Transaction title',
+            amount: 500,
+            type: 'credit',
+          })
+          .set('Cookie', cookies)
+
         const response = await stRequest(app.server)
           .get('/transactions/summary')
           .set('Cookie', cookies)
 
-        expect(response.status).toBe(200)
+        expect(response.body.summary.amount).toBe(600)
       })
 
       it('should return the summary', async () => {

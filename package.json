@@ -13,7 +13,8 @@
     "migrate": "npm run knex migrate:latest",
     "migrate:create": "npm run knex migrate:make",
     "migrate:rollback": "npm run knex migrate:rollback",
-    "test": "vitest"
+    "test": "vitest",
+    "build": "tsup src --out-dir build"
   },
   "dependencies": {
     "@fastify/cookie": "^8.3.0",
@@ -29,6 +30,7 @@
     "@types/supertest": "^2.0.12",
     "eslint": "^8.36.0",
     "supertest": "^6.3.3",
+    "tsup": "^6.7.0",
     "tsx": "^3.12.5",
     "typescript": "^5.0.2",
     "vitest": "^0.29.7"
