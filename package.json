@@ -12,10 +12,10 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
-    "knex": "node --no-warnings --loader tsx ./node_modules/.bin/knex",
-    "migrate": "npm run knex migrate:latest",
-    "migrate:create": "npm run knex migrate:make",
-    "migrate:rollback": "npm run knex migrate:rollback",
+    "knexDev": "node --no-warnings --loader tsx ./node_modules/.bin/knex",
+    "migrate": "npm run knexDev migrate:latest",
+    "migrate:create": "npm run knexDev migrate:make",
+    "migrate:rollback": "npm run knexDev migrate:rollback",
     "test": "vitest",
     "build": "tsup src --out-dir build"
   },
