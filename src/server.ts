@@ -6,5 +6,5 @@ app
     port: env.PORT,
   })
   .then(() =>
-    console.log(`Server is running at http://localhost:${env.PORT} 🚀`),
+    console.log(`Server is running! You can access /isUp to check! 🚀`),
   )
