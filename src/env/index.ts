@@ -11,9 +11,10 @@ const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
   PORT: z
     .string()
-    .default('3334')
-    .transform((port) => Number(port)),
+    .transform((port) => Number(port))
+    .default('3334'),
   DATABASE_URL: z.string(),
+  DATABASE_CLIENT: z.enum(['pg', 'sqlite']),
   MIGRATIONS_DIRECTORY: z.string(),
   SEEDS_DIRECTORY: z.string(),
 })
